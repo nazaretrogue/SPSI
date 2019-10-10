@@ -102,3 +102,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Directorios y ficheros a ignorar
+Teoria/
+Practicas/sagemath*
