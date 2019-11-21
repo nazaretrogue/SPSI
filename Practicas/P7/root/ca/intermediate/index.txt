@@ -1,0 +1,2 @@
+V	201130160342Z		1000	unknown	/CN=www.example.com
+R	201130191803Z	191121191925Z	1001	unknown	/CN=bob@example.com
