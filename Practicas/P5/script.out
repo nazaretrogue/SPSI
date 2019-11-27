@@ -1,0 +1,78 @@
+Script iniciado en 2019-11-27 22:40:39+0100
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio[00m$ mkdir root/ca/intermediate
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio[00m$ cd root/ca/intermediate/
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca/intermediate[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca/intermediate[00m$ mkdir certs crl csr newcerts private
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca/intermediate[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca/intermediate[00m$ chmod 700 private/
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca/intermediate[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca/intermediate[00m$ touch index.txt
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca/intermediate[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca/intermediate[00m$ echo 1000 > {si[Kerial, crlnumber}
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca/intermediate[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca/intermediate[00m$ cd ..
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca[00m$ cp ../../openssl.cnf intermediate/
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca[00m$ nano intermediate/openssl.cnf 
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;42H(B[0;7m[ Leyendo archivo ](B[m[52;41H(B[0;7m[ 132 líneas leídas ](B[m[H(B[0;7m  GNU nano 2.9.3                        intermediate/openssl.cnf                                     [1;100H(B[m[53d(B[0;7m^G(B[m Ver ayuda  (B[0;7m^O(B[m Guardar    (B[0;7m^W(B[m Buscar     (B[0;7m^K(B[m Cortar Text(B[0;7m^J(B[m Justificar (B[0;7m^C(B[m Posición   (B[0;7mM-U(B[m Deshacer[54d(B[0;7m^X(B[m Salir[15G(B[0;7m^R(B[m Leer fich. (B[0;7m^\(B[m Reemplazar (B[0;7m^U(B[m Pegar txt  (B[0;7m^T(B[m Ortografía (B[0;7m^_(B[m Ir a línea (B[0;7mM-E(B[m Rehacer[52d[3d[39;49m[36m# OpenSSL intermediate CA configuration file.[4d# Copy to `/root/ca/intermediate/openssl.cnf`.[6d[39m(B[m[ ca ][7d[36m# `man ca`[8d[39m(B[mdefault_ca = CA_default[10d[ CA_default ][11d[36m# Directory and file locations.[12d[39m(B[mdir[12;19H= /root/ca/intermediate[13dcerts[13;19H= $dir/certs[14dcrl_dir[14;19H= $dir/crl[15dnew_certs_dir     = $dir/newcerts[16ddatabase[16;19H= $dir/index.txt[17dserial[17;19H= $dir/serial[18dRANDFILE[18;19H= $dir/private/.rand[20d[36m# The root key and root certificate.[21d[39m(B[mprivate_key[19G= $dir/private/intermediate.key.pem[22dcertificate[19G= $dir/certs/intermediate.cert.pem[24d[36m# For certificate revocation lists.[25d[39m(B[mcrlnumber[25;19H= $dir/crlnumber[26dcrl[26;19H= $dir/crl/intermediate.crl.pem[27dcrl_extensions    = crl_ext[28ddefault_crl_days  = 30[30d[36m# SHA-1 is deprecated, so use SHA-2 instead.[31d[39m(B[mdefault_md[31;19H= sha256[33dname_opt[33;19H= ca_default[34dcert_opt[34;19H= ca_default[35ddefault_days[19G= 375[36dpreserve[36;19H= no[37dpolicy[37;19H= policy_loose[39d[ policy_strict ][40d[36m# The root CA should only sign intermediate certificates that match.[41d# See the POLICY FORMAT section of `man ca`.[42d[39m(B[mcountryName[42;25H= match[43dstateOrProvinceName     = match[44dorganizationName[44;25H= match[45dorganizationalUnitName  = optional[46dcommonName[46;25H= supplied[47demailAddress[47;25H= optional[49d[ policy_loose ][50d[36m# Allow the intermediate CA to sign a more diverse range of certificates.[51d# See the POLICY FORMAT section of the `ca` man page.[3d[39m(B[m[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[10d[?12l[?25h[?25l[11d[?12l[?25h[?25l[12d[?12l[?25h[?25l[53;15H[19X[53;34H(B[0;7m^X(B[m Ejecutar orden[16X[53;67H(B[0;7m^T(B[m A Ficheros[K[54;2H(B[0;7mC(B[m Cancelar[22X[54;34H(B[0;7mM-F(B[m Nuevo búfer[K[52d(B[0;7mFichero que insertar [desde ./]:                                                                     [52;1H(B[m[52;34H[?12l[?25h[?25l[52;34H[?12l[?25h[?25l[52;34H[?12l[?25h[?25l[52;44H[1K (B[0;7m[ Cancelado ](B[m[K[53;15H(B[0;7m^O(B[m Guardar    (B[0;7m^W(B[m Buscar     (B[0;7m^K(B[m Cortar Text(B[0;7m^J(B[m Justificar (B[0;7m^C(B[m Posición   (B[0;7mM-U(B[m Deshacer[54;2H(B[0;7mX(B[m Salir      (B[0;7m^R(B[m Leer fich. (B[0;7m^\(B[m Reemplazar (B[0;7m^U(B[m Pegar txt  (B[0;7m^T(B[m Ortografía (B[0;7m^_(B[m Ir a línea (B[0;7mM-E(B[m Rehacer[52d[12d[?12l[?25h[?25ld[?12l[?25h[?25li[?12l[?25h[?25lr[?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l [?12l[?25h[?25l=[?12l[?25h[?25l [?12l[?25h[?25l/[?12l[?25h[?25l[1;90H(B[0;7mModificado(B[m[12;22Hhroot/ca/intermediate[12;23H[?12l[?25h[?25loroot/ca/intermediate[12;24H[?12l[?25h[?25lmroot/ca/intermediate[12;25H[?12l[?25h[?25leroot/ca/intermediate[12;26H[?12l[?25h[?25l/root/ca/intermediate[52d[K[12;27H[?12l[?25h[?25lnroot/ca/intermediate[12;28H[?12l[?25h[?25laroot/ca/intermediate[12;29H[?12l[?25h[?25lzroot/ca/intermediate[12;30H[?12l[?25h[?25laroot/ca/intermediate[12;31H[?12l[?25h[?25lrroot/ca/intermediate[12;32H[?12l[?25h[?25leroot/ca/intermediate[12;33H[?12l[?25h[?25ltroot/ca/intermediate[12;34H[?12l[?25h[?25l/root/ca/intermediate[12;35H[?12l[?25h[?25lEroot/ca/intermediate[12;36H[?12l[?25h[?25lsroot/ca/intermediate[12;37H[?12l[?25h[?25lcroot/ca/intermediate[12;38H[?12l[?25h[?25lrroot/ca/intermediate[12;39H[?12l[?25h[?25liroot/ca/intermediate[12;40H[?12l[?25h[?25ltroot/ca/intermediate[12;41H[?12l[?25h[?25loroot/ca/intermediate[12;42H[?12l[?25h[?25lrroot/ca/intermediate[12;43H[?12l[?25h[?25liroot/ca/intermediate[12;44H[?12l[?25h[?25loroot/ca/intermediate[12;45H[?12l[?25h[?25l/root/ca/intermediate[12;46H[?12l[?25h[?25l[52;23H(B[0;7m[ línea 10/133 (7%), col 46/66 (69%), car 229/4283 (5%) ](B[m[12;46H[?12l[?25h[?25lsroot/ca/intermediate[12;47H[?12l[?25h[?25l[1P[?12l[?25h[?25l[52d(B[0;7m¿Guardar el búfer modificado?  (Responder "No" DESCARTARÁ los cambios.)                              [53;1H S(B[m Sí[K[54d(B[0;7m N(B[m No   [15G  (B[0;7m^C(B[m Cancelar[K[52;73H[?12l[?25h[?25l[53d(B[0;7m^G(B[m Ver ayuda[53;26H(B[0;7mM-D(B[m Format DOS[53;51H(B[0;7mM-A(B[m Añadir[53;76H(B[0;7mM-B(B[m Respald fich[54d(B[0;7m^C(B[m Cancelar[14X[54;26H(B[0;7mM-M(B[m Format Mac[54;51H(B[0;7mM-P(B[m Anteponer[54;76H(B[0;7m^T(B[m A Ficheros[52d(B[0;7mNombre del archivo a escribir: intermediate/openssl.cnf                (B[m[52;56H[?12l[?25h[?25l[K[1;100H[1;90H(B[0;7m          (B[m[52;40H(B[0;7m[ 132 líneas escritas ](B[m[J[54;101H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca[00m$ openssl genrsa -aes256 -out intermediate/private/inter mediate.key.pem 4096
+Generating RSA private key, 4096 bit long modulus (2 primes)
+.....................................................................................................................++++
+......................................................................++++
+e is 65537 (0x010001)
+Enter pass phrase for intermediate/private/intermediate.key.pem:
+Verifying - Enter pass phrase for intermediate/private/intermediate.key.pem:
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca[00m$ chmod 400 intermediate/private/intermediate.key.pem 
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca[00m$ openssl req -config itn[K[Kntermediate/openssl.cnf -new -sha 256 -key it[Kntermediate/private/intermediate.key.pem -out intermediate/csr/intermediate.csr.pem
+Enter pass phrase for intermediate/private/intermediate.key.pem:
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [GB]:
+State or Province Name [England]:
+Locality Name []:
+Organization Name [Alice Ltd]:
+Organizational Unit Name []:Alice Root Ltd
+Common Name []:Alice Ltd Intermediate CA
+Email Address []:
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca[00m$ openssl ca -config openssl.cnf -extensions v3_intermediiate_ca -days 3650 -notext -md sah[K[Kha256 -in intermediate/csr/intermediate.csr.pem -out intermediate/cer ts/it[Kntermediate.cert.pem -subj "/C=GB/CN=Alice/ST=England/O=Alice Ltd"
+Using configuration from openssl.cnf
+Enter pass phrase for /home/nazaret/Escritorio/root/ca/private/ca.key.pem:
+Can't open /home/nazaret/Escritorio/root/ca/index.txt.attr for reading, No such file or directory
+140454460768704:error:02001002:system library:fopen:No such file or directory:../crypto/bio/bss_file.c:72:fopen('/home/nazaret/Escritorio/root/ca/index.txt.attr','r')
+140454460768704:error:2006D080:BIO routines:BIO_new_file:no such file:../crypto/bio/bss_file.c:79:
+Check that the request matches the signature
+Signature ok
+Certificate Details:
+        Serial Number: 4096 (0x1000)
+        Validity
+            Not Before: Nov 27 21:45:35 2019 GMT
+            Not After : Nov 24 21:45:35 2029 GMT
+        Subject:
+            countryName               = GB
+            stateOrProvinceName       = England
+            organizationName          = Alice Ltd
+            commonName                = Alice
+        X509v3 extensions:
+            X509v3 Subject Key Identifier: 
+                67:F6:28:2D:67:BC:D4:FC:5B:3B:70:FA:54:52:2F:B4:AE:F2:72:FD
+            X509v3 Authority Key Identifier: 
+                keyid:F7:D8:8C:AD:08:68:AD:CC:67:31:15:28:64:9C:18:AF:EE:60:C6:4F
+
+            X509v3 Basic Constraints: critical
+                CA:TRUE, pathlen:0
+            X509v3 Key Usage: critical
+                Digital Signature, Certificate Sign, CRL Sign
+Certificate is to be certified until Nov 24 21:45:35 2029 GMT (3650 days)
+Sign the certificate? [y/n]:ç y
+
+
+1 out of 1 certificate requests certified, commit? [y/n]y
+Write out database with 1 new entries
+Data Base Updated
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca[00m$ chmod 444 it[Kntermediate/certs/intermediate.cert.pem 
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca[00m$ opensslverify[K[K[K[K[K[K verify -CAfile certs/ca.cert.pem intermediate/ certs/intermediate.cert.pem 
+intermediate/certs/intermediate.cert.pem: OK
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca[00m$ cat intermediate/certs/intermediate.cert.pem certs/ca.ccert.pem > it[Kntermediate/certs/ca-chain.cert.pem
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca[00m$ chmod 444 intermediate/certs/ca-chain.cert.pem 
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca[00m$ exit
+exit
+
+Script terminado en 2019-11-27 22:46:49+0100

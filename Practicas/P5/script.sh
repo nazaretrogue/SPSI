@@ -7,9 +7,17 @@ mkdir certs crl csr newcerts private
 chmod 700 private
 touch index.txt
 echo 1000 > {serial, crlnumber}
-
+cd ..
 # Modificamos el archivo de configuración
 atom intermediate/openssl.cnf
+
+Country Name (2 letter code) [XX]:GB
+State or Province Name []:England
+Locality Name []:
+Organization Name []:Alice Ltd
+Organizational Unit Name []:Alice Root Ltd
+Common Name []:Alice Ltd Intermediate CA
+Email Address []:
 
 # Creamos la clave intermediate
 openssl genrsa -aes256 -out intermediate/private/intermediate.key.pem 4096
