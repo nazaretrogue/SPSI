@@ -1,0 +1,134 @@
+Script iniciado en 2019-11-28 00:35:22+0100
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio[00m$ cd root/ca/
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca[00m$ nano intermediate/openssl.cnf 
+[?1049h[22;0;0t[1;54r(B[m[4l[?7h[39;49m[?1h=[?1h=[?1h=[?25l[39;49m(B[m[H[2J[52;42H(B[0;7m[ Leyendo archivo ](B[m[52;41H(B[0;7m[ 132 líneas leídas ](B[m[H(B[0;7m  GNU nano 2.9.3                        intermediate/openssl.cnf                                     [1;100H(B[m[53d(B[0;7m^G(B[m Ver ayuda  (B[0;7m^O(B[m Guardar    (B[0;7m^W(B[m Buscar     (B[0;7m^K(B[m Cortar Text(B[0;7m^J(B[m Justificar (B[0;7m^C(B[m Posición   (B[0;7mM-U(B[m Deshacer[54d(B[0;7m^X(B[m Salir[15G(B[0;7m^R(B[m Leer fich. (B[0;7m^\(B[m Reemplazar (B[0;7m^U(B[m Pegar txt  (B[0;7m^T(B[m Ortografía (B[0;7m^_(B[m Ir a línea (B[0;7mM-E(B[m Rehacer[52d[3d[39;49m[36m# OpenSSL intermediate CA configuration file.[4d# Copy to `/root/ca/intermediate/openssl.cnf`.[6d[39m(B[m[ ca ][7d[36m# `man ca`[8d[39m(B[mdefault_ca = CA_default[10d[ CA_default ][11d[36m# Directory and file locations.[12d[39m(B[mdir[12;19H= /home/nazaret/Escritorio/root/ca/intermediate[13dcerts[13;19H= $dir/certs[14dcrl_dir[14;19H= $dir/crl[15dnew_certs_dir     = $dir/newcerts[16ddatabase[16;19H= $dir/index.txt[17dserial[17;19H= $dir/serial[18dRANDFILE[18;19H= $dir/private/.rand[20d[36m# The root key and root certificate.[21d[39m(B[mprivate_key[19G= $dir/private/intermediate.key.pem[22dcertificate[19G= $dir/certs/intermediate.cert.pem[24d[36m# For certificate revocation lists.[25d[39m(B[mcrlnumber[25;19H= $dir/crlnumber[26dcrl[26;19H= $dir/crl/intermediate.crl.pem[27dcrl_extensions    = crl_ext[28ddefault_crl_days  = 30[30d[36m# SHA-1 is deprecated, so use SHA-2 instead.[31d[39m(B[mdefault_md[31;19H= sha256[33dname_opt[33;19H= ca_default[34dcert_opt[34;19H= ca_default[35ddefault_days[19G= 375[36dpreserve[36;19H= no[37dpolicy[37;19H= policy_loose[39d[ policy_strict ][40d[36m# The root CA should only sign intermediate certificates that match.[41d# See the POLICY FORMAT section of `man ca`.[42d[39m(B[mcountryName[42;25H= match[43dstateOrProvinceName     = match[44dorganizationName[44;25H= match[45dorganizationalUnitName  = optional[46dcommonName[46;25H= supplied[47demailAddress[47;25H= optional[49d[ policy_loose ][50d[36m# Allow the intermediate CA to sign a more diverse range of certificates.[51d# See the POLICY FORMAT section of the `ca` man page.[3d[39m(B[m[?12l[?25h[?25l[4d[?12l[?25h[?25l[5d[?12l[?25h[?25l[6d[?12l[?25h[?25l[7d[?12l[?25h[?25l[8d[?12l[?25h[?25l[9d[?12l[?25h[?25l[10d[?12l[?25h[?25l[11d[?12l[?25h[?25l[12d[?12l[?25h[?25l[13d[?12l[?25h[?25l[14d[?12l[?25h[?25l[15d[?12l[?25h[?25l[16d[?12l[?25h[?25l[17d[?12l[?25h[?25l[18d[?12l[?25h[?25l[19d[?12l[?25h[?25l[20d[?12l[?25h[?25l[21d[?12l[?25h[?25l[22d[?12l[?25h[?25l[23d[?12l[?25h[?25l[24d[?12l[?25h[?25l[25d[?12l[?25h[?25l[26d[?12l[?25h[?25l[27d[?12l[?25h[?25l[28d[?12l[?25h[?25l[52d[K[29d[?12l[?25h[?25l[30d[?12l[?25h[?25l[31d[?12l[?25h[?25l[32d[?12l[?25h[?25l[33d[?12l[?25h[?25l[34d[?12l[?25h[?25l[35d[?12l[?25h[?25l[36d[?12l[?25h[?25l[37d[?12l[?25h[?25l[38d[?12l[?25h[?25l[39d[?12l[?25h[?25l[40d[?12l[?25h[?25l[41d[?12l[?25h[?25l[42d[?12l[?25h[?25l[43d[?12l[?25h[?25l[44d[?12l[?25h[?25l[45d[?12l[?25h[?25l[46d[?12l[?25h[?25l[47d[?12l[?25h[?25l[48d[?12l[?25h[?25l[49d[?12l[?25h[?25l[50d[?12l[?25h[?25l[51d[?12l[?25h[?25l7[3;52r8[52d[25S[1;54r[27;1HcountryName[27;25H= optional[28dstateOrProvinceName     = optional[29dlocalityName[29;25H= optional[30dorganizationName[30;25H= optional[31dorganizationalUnitName  = optional[32dcommonName[32;25H= supplied[33demailAddress[33;25H= optional[35d[ req ][36d[36m# Options for the `req` tool (`man req`).[37d[39m(B[mdefault_bits[37;21H= 2048[38ddistinguished_name  = req_distinguished_name[39dstring_mask[39;21H= utf8only[41d[36m# SHA-1 is deprecated, so use SHA-2 instead.[42d[39m(B[mdefault_md[42;21H= sha256[44d[36m# Extension to add when the -x509 option is used.[45d[39m(B[mx509_extensions     = v3_ca[47d[ req_distinguished_name ][48d[36m# See <https://en.wikipedia.org/wiki/Certificate_signing_request>.[49d[39m(B[mcountryName[49;33H= Country Name (2 letter code)[50dstateOrProvinceName[50;33H= State or Province Name[51dlocalityName[51;33H= Locality Name[27d[?12l[?25h[?25l[28d[?12l[?25h[?25l[29d[?12l[?25h[?25l[30d[?12l[?25h[?25l[31d[?12l[?25h[?25l[32d[?12l[?25h[?25l[33d[?12l[?25h[?25l[34d[?12l[?25h[?25l[35d[?12l[?25h[?25l[36d[?12l[?25h[?25l[37d[?12l[?25h[?25l[38d[?12l[?25h[?25l[39d[?12l[?25h[?25l[40d[?12l[?25h[?25l[41d[?12l[?25h[?25l[42d[?12l[?25h[?25l[43d[?12l[?25h[?25l[44d[?12l[?25h[?25l[45d[?12l[?25h[?25l[46d[?12l[?25h[?25l[47d[?12l[?25h[?25l[48d[?12l[?25h[?25l[49d[?12l[?25h[?25l[50d[?12l[?25h[?25l[51d[?12l[?25h[?25l7[3;52r8[52d[25S[1;54r[27;1H0.organizationName[27;33H= Organization Name[28dorganizationalUnitName[28;33H= Organizational Unit Name[29dcommonName[29;33H= Common Name[30demailAddress[30;33H= Email Address[32d[36m# Optionally, specify some defaults.[33d[39m(B[mcountryName_default[33;33H= GB[34dstateOrProvinceName_default     = England[35dlocalityName_default[35;33H=[36d0.organizationName_default[33G= Alice Ltd[37dorganizationalUnitName_default  =[38demailAddress_default[38;33H=[40d[ v3_ca ][41d[36m# Extensions for a typical CA (`man x509v3_config`).[42d[39m(B[msubjectKeyIdentifier = hash[43dauthorityKeyIdentifier = keyid:always,issuer[44dbasicConstraints = critical, CA:true[45dkeyUsage = critical, digitalSignature, cRLSign, keyCertSign[47d[ v3_intermediate_ca ][48d[36m# Extensions for a typical intermediate CA (`man x509v3_config`).[49d[39m(B[msubjectKeyIdentifier = hash[50dauthorityKeyIdentifier = keyid:always,issuer[51dbasicConstraints = critical, CA:true, pathlen:0[27d[?12l[?25h[?25l[28d[?12l[?25h[?25l[29d[?12l[?25h[?25l[30d[?12l[?25h[?25l[31d[?12l[?25h[?25l[32d[?12l[?25h[?25l[33d[?12l[?25h[?25l[34d[?12l[?25h[?25l[35d[?12l[?25h[?25l[36d[?12l[?25h[?25l[37d[?12l[?25h[?25l[38d[?12l[?25h[?25l[39d[?12l[?25h[?25l[40d[?12l[?25h[?25l[41d[?12l[?25h[?25l[42d[?12l[?25h[?25l[43d[?12l[?25h[?25l[44d[?12l[?25h[?25l[45d[?12l[?25h[?25l[46d[?12l[?25h[?25l[47d[?12l[?25h[?25l[48d[?12l[?25h[?25l[49d[?12l[?25h[?25l[50d[?12l[?25h[?25l[51d[?12l[?25h[?25l7[3;52r8[52d[25S[1;54r[27;1HkeyUsage = critical, digitalSignature, cRLSign, keyCertSign[29d[ usr_cert ][30d[36m# Extensions for client certificates (`man x509v3_config`).[31d[39m(B[mbasicConstraints = CA:FALSE[32dnsCertType = client, email[33dnsComment = "OpenSSL Generated Client Certificate"[34dsubjectKeyIdentifier = hash[35dauthorityKeyIdentifier = keyid,issuer[36dkeyUsage = critical, nonRepudiation, digitalSignature, keyEncipherment[37dextendedKeyUsage = clientAuth, emailProtection[39d[ server_cert ][40d[36m# Extensions for server certificates (`man x509v3_config`).[41d[39m(B[mbasicConstraints = CA:FALSE[42dnsCertType = server[43dnsComment = "OpenSSL Generated Server Certificate"[44dsubjectKeyIdentifier = hash[45dauthorityKeyIdentifier = keyid,issuer:always[46dkeyUsage = critical, digitalSignature, keyEncipherment[47dextendedKeyUsage = serverAuth[49d[ crl_ext ][50d[36m# Extension for CRLs (`man x509v3_config`).[51d[39m(B[mauthorityKeyIdentifier=keyid:always[27d[?12l[?25h[?25l[28d[?12l[?25h[?25l[29d[?12l[?25h[?25l[30d[?12l[?25h[?25l[31d[?12l[?25h[?25l[32d[?12l[?25h[?25l[33d[?12l[?25h[?25l[34d[?12l[?25h[?25l[35d[?12l[?25h[?25l[36d[?12l[?25h[?25l[37d[?12l[?25h[?25l[38d[?12l[?25h[?25l[39d[?12l[?25h[?25l[40d[?12l[?25h[?25l[41d[?12l[?25h[?25l[42d[?12l[?25h[?25l[43d[?12l[?25h[?25l[44d[?12l[?25h[?25l[45d[?12l[?25h[?25l[46d[?12l[?25h[?25l[47d[?12l[?25h[?25l[48d[?12l[?25h[?25l[49d[?12l[?25h[?25l[50d[?12l[?25h[?25l[A[?12l[?25h[?25l[A[?12l[?25h[?25l[1;90H(B[0;7mModificado(B[m[48;51r[48;1HM[1;54r[49;1H[?12l[?25h[?25l[A[?12l[?25h[?25lc[?12l[?25h[?25ld[?12l[?25h[?25l [?12l[?25h[?25lr[?12l[?25h[?25ll[?12l[?25h[?25lD[?12l[?25h[?25li[?12l[?25h[?25ls[?12l[?25h[?25lt[?12l[?25h[?25lr[?12l[?25h[?25li[?12l[?25h[?25lb[?12l[?25h[?25lu[?12l[?25h[?25lt[?12l[?25h[?25li[?12l[?25h[?25lo[?12l[?25h[?25ln[?12l[?25h[?25lP[?12l[?25h[?25lo[?12l[?25h[?25li[?12l[?25h[?25ln[?12l[?25h[?25lt[?12l[?25h[?25ls[?12l[?25h[?25l [?12l[?25h[?25l=[?12l[?25h[?25l [?12l[?25h[?25lU[?12l[?25h[?25lR[?12l[?25h[?25lI[?12l[?25h[?25l:[?12l[?25h[?25lh[?12l[?25h[?25lt[?12l[?25h[?25lt[?12l[?25h[?25lp[?12l[?25h[?25l:[?12l[?25h[?25l/[?12l[?25h[?25l/[?12l[?25h[?25le[?12l[?25h[?25lx[?12l[?25h[?25la[?12l[?25h[?25lm[?12l[?25h[?25lp[?12l[?25h[?25ll[?12l[?25h[?25le[?12l[?25h[?25l.[?12l[?25h[?25lc[?12l[?25h[?25lo[?12l[?25h[?25lm[?12l[?25h[?25l/[?12l[?25h[?25li[?12l[?25h[?25ln[?12l[?25h[?25lt[?12l[?25h[?25le[?12l[?25h[?25lr[?12l[?25h[?25lm[?12l[?25h[?25le[?12l[?25h[?25ld[?12l[?25h[?25li[?12l[?25h[?25la[?12l[?25h[?25lt[?12l[?25h[?25le[?12l[?25h[?25l.[?12l[?25h[?25lc[?12l[?25h[?25lr[?12l[?25h[?25ll[?12l[?25h[?25l.[?12l[?25h[?25lp[?12l[?25h[?25le[?12l[?25h[?25lm[?12l[?25h[?25l[52d(B[0;7m¿Guardar el búfer modificado?  (Responder "No" DESCARTARÁ los cambios.)                              [53;1H S(B[m Sí[K[54d(B[0;7m N(B[m No   [15G  (B[0;7m^C(B[m Cancelar[K[52;73H[?12l[?25h[?25l[53d(B[0;7m^G(B[m Ver ayuda[53;26H(B[0;7mM-D(B[m Format DOS[53;51H(B[0;7mM-A(B[m Añadir[53;76H(B[0;7mM-B(B[m Respald fich[54d(B[0;7m^C(B[m Cancelar[14X[54;26H(B[0;7mM-M(B[m Format Mac[54;51H(B[0;7mM-P(B[m Anteponer[54;76H(B[0;7m^T(B[m A Ficheros[52d(B[0;7mNombre del archivo a escribir: intermediate/openssl.cnf                (B[m[52;56H[?12l[?25h[?25l[K[1;100H[1;90H(B[0;7m          (B[m[52;40H(B[0;7m[ 133 líneas escritas ](B[m[J[54;101H[?12l[?25h[54;1H[?1049l[23;0;0t[?1l>]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca[00m$ openssl ca -config intermediate/openssl.cnf -gencrl -o ut intermediate/crl/I[Kintermediate.crl.pem
+Using configuration from intermediate/openssl.cnf
+Enter pass phrase for /home/nazaret/Escritorio/root/ca/intermediate/private/intermediate.key.pem:
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca[00m$ c[Koopen[K[K[Kp[K[Kpenssl crl -in intermediate/crl/intermediate.crl.pem  -noout t[K-text 
+Certificate Revocation List (CRL):
+        Version 2 (0x1)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C = GB, ST = England, O = Alice Ltd, CN = Alice
+        Last Update: Nov 27 23:36:48 2019 GMT
+        Next Update: Dec 27 23:36:48 2019 GMT
+        CRL extensions:
+            X509v3 Authority Key Identifier: 
+                keyid:67:F6:28:2D:67:BC:D4:FC:5B:3B:70:FA:54:52:2F:B4:AE:F2:72:FD
+
+            X509v3 CRL Number: 
+                4096
+No Revoked Certificates.
+    Signature Algorithm: sha256WithRSAEncryption
+         2d:03:30:a7:b2:c3:fd:83:fc:70:2b:3b:e2:3c:d5:8a:c8:32:
+         d8:56:4d:8c:6e:72:d4:9e:e1:fa:81:1c:2c:38:51:bb:cd:ae:
+         0f:fd:fa:1f:9e:97:bc:58:5d:df:53:c4:42:ee:03:60:81:ad:
+         d7:f4:fb:ab:34:82:b4:ec:ec:02:89:ef:0a:bf:bf:d3:e1:07:
+         d6:b7:ea:05:01:7d:07:be:f4:94:04:c1:46:d0:56:a8:1b:9c:
+         dd:13:9b:d8:8d:ac:77:31:79:52:8d:03:37:ab:00:42:98:da:
+         48:56:1f:8b:43:3c:bc:d0:4e:64:2c:6a:47:34:11:81:6b:26:
+         17:a3:1f:1a:d1:62:87:eb:93:6a:2f:2c:56:9b:93:ba:bb:5d:
+         34:3e:33:50:63:62:98:7a:5a:5b:a1:e3:39:29:5b:8c:21:4b:
+         be:8d:a4:74:2c:33:d4:68:17:33:0b:76:ac:cb:05:f7:61:3c:
+         18:70:8b:d5:7d:19:2b:9d:1b:c9:ce:03:69:95:5d:57:55:18:
+         d9:a4:0b:3e:56:c8:5e:8e:9f:db:0b:8d:13:9b:4e:46:e0:e0:
+         35:92:de:6f:92:e6:cc:66:bf:8f:4d:dd:5b:20:ae:19:39:eb:
+         d2:63:76:3c:9a:bf:fc:b7:ca:20:63:c9:22:87:be:1f:f6:d0:
+         d8:8c:6f:c7:a3:fc:eb:1c:b7:34:1d:a6:9b:e9:33:98:e8:0c:
+         08:4b:a6:59:59:4c:ad:a5:a3:ff:45:2f:78:a3:a1:af:da:a6:
+         a5:6a:c7:bb:75:71:22:07:40:08:a4:ba:1b:52:75:98:19:d9:
+         3c:98:7b:57:4d:22:98:2b:0c:59:9f:99:5c:76:7f:f8:93:d5:
+         b2:f7:43:f2:79:cd:a6:61:f3:22:13:8f:e1:7f:9e:c2:f7:8e:
+         a3:09:32:7b:99:49:8a:b9:26:2c:d3:8a:42:28:0c:fb:7d:5f:
+         3d:ef:cf:bd:28:2a:6e:75:58:b1:2d:28:51:c2:65:c9:46:90:
+         ea:2c:8b:36:27:08:54:86:e5:b2:7a:d2:8d:0a:fc:32:bc:5a:
+         e0:c1:86:18:b0:e0:ce:de:14:44:12:9a:5f:b6:d0:db:66:07:
+         e8:c8:fb:ad:67:73:4d:dc:c0:d9:18:c9:c3:7b:95:bf:5a:81:
+         70:3f:f9:0d:7f:5f:c8:24:57:cd:be:1b:bb:a4:92:2d:25:38:
+         e1:01:e4:f0:29:0b:01:13:2c:be:18:6b:23:f9:80:f2:f5:7b:
+         2c:27:67:30:bf:99:7b:7d:34:4f:2f:9a:9a:1a:ad:99:7d:06:
+         df:2f:a8:b8:14:60:e0:9d:da:01:34:8a:6c:14:4d:18:47:a0:
+         94:91:b5:33:e1:3f:e1:fd
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca[00m$ cd ../..
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio[00m$ mkdir bob
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio[00m$ cd bob
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/bob[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/bob[00m$ openssl e[Kgenrsa -out bob@example.com.l[Kkey.pem 2048
+Generating RSA private key, 2048 bit long modulus (2 primes)
+..............+++++
+......................+++++
+e is 65537 (0x010001)
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/bob[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/bob[00m$ openssl req -new -key bob@example.com.key.pem -out bob@exa mple.com.csr.pem
+Can't load /home/nazaret/.rnd into RNG
+140200743006656:error:2406F079:random number generator:RAND_load_file:Cannot open file:../crypto/rand/randfile.c:88:Filename=/home/nazaret/.rnd
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:US
+State or Province Name (full name) [Some-State]:California
+Locality Name (eg, city) []:San Francisco
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:Bob Ltd
+Organizational Unit Name (eg, section) []:
+Common Name (e.g. server FQDN or YOUR name) []:bob@examm ple.com
+Email Address []:
+
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:pass
+An optional company name []:
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/bob[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/bob[00m$ cd ../root/ca
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca[00m$ cp ../../bob/bob@example.com.csr.pem intermediate/csr/ [A
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca[00m$ openssl ca -config intermediate/openssl.cnf -extensionss usr_cert -notext -md sha256 -in intermediate/csr/bob@example.com.csr.pem -out intermediate/certs/bo b@example.com.cert.pem -subj "/CN=bob@example.com"
+Using configuration from intermediate/openssl.cnf
+Enter pass phrase for /home/nazaret/Escritorio/root/ca/intermediate/private/intermediate.key.pem:
+Check that the request matches the signature
+Signature ok
+Certificate Details:
+        Serial Number: 4097 (0x1001)
+        Validity
+            Not Before: Nov 27 23:39:52 2019 GMT
+            Not After : Dec  6 23:39:52 2020 GMT
+        Subject:
+            commonName                = bob@example.com
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            Netscape Cert Type: 
+                SSL Client, S/MIME
+            Netscape Comment: 
+                OpenSSL Generated Client Certificate
+            X509v3 Subject Key Identifier: 
+                1D:39:FF:5F:33:4F:00:9F:A8:2F:99:6F:18:8B:BC:95:D1:83:9E:41
+            X509v3 Authority Key Identifier: 
+                keyid:67:F6:28:2D:67:BC:D4:FC:5B:3B:70:FA:54:52:2F:B4:AE:F2:72:FD
+
+            X509v3 Key Usage: critical
+                Digital Signature, Non Repudiation, Key Encipherment
+            X509v3 Extended Key Usage: 
+                TLS Web Client Authentication, E-mail Protection
+Certificate is to be certified until Dec  6 23:39:52 2020 GMT (375 days)
+Sign the certificate? [y/n]:y
+
+
+1 out of 1 certificate requests certified, commit? [y/n]y
+Write out database with 1 new entries
+Data Base Updated
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca[00m$ openssl verify -CAfile intermediate/certs/ca-chain.certt.pem intermediate/certs/bob@example.com.cert.pem 
+intermediate/certs/bob@example.com.cert.pem: OK
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca[00m$ cat intermediate/index.txt
+V	201206231235Z		1000	unknown	/CN=www.example.com
+V	201206233952Z		1001	unknown	/CN=bob@example.com
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca[00m$ openssl ca -config intermediate/openssl.cnf -revoke in termediate/certs/bob@example.com.cert.pem 
+Using configuration from intermediate/openssl.cnf
+Enter pass phrase for /home/nazaret/Escritorio/root/ca/intermediate/private/intermediate.key.pem:
+Revoking Certificate 1001.
+Data Base Updated
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca[00m$ cat intermediate/index.txt
+V	201206231235Z		1000	unknown	/CN=www.example.com
+R	201206233952Z	191127234041Z	1001	unknown	/CN=bob@example.com
+]0;nazaret@nazaret-GE63-7RD: ~/Escritorio/root/ca[01;32mnazaret@nazaret-GE63-7RD[00m:[01;34m~/Escritorio/root/ca[00m$ exit
+exit
+
+Script terminado en 2019-11-28 00:40:51+0100
