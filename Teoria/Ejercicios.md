@@ -20,7 +20,7 @@ césar de forma individual.
 
 ## Ejercicio 2.
 **Explicar la transformación SubBytes() que es parte del algoritmo simétrico de
-cifrado *** ***AES.***
+cifrado ** ***AES.***
 
 La transformación es una sustitución no lineal de bytes que es independiente del
 estado. La transformación cambia cada byte de s<sub>ij</sub> a s'<sub>ij</sub>.
@@ -71,7 +71,7 @@ nadie, salvo el usuario, con la llave privada, puede descifrarlo.
 
 ## Ejercicio 5.
 **Enumerar resumidamente las precauciones más destacables a tomar al generar un
-círculo de comunicación basado en *** ***RSA.***
+círculo de comunicación basado en ** ***RSA.***
 
 1. El número *n* debe superar los 308 dígitos de longitud.
 2. El número *n* debe tener dos factorios primos de valor alto.
@@ -96,5 +96,5 @@ de su supuesta fortaleza.**
 **Explicación del algoritmo de firma estándar (** ***DSA*** **).**
 
 ## Ejercicio 9.
-**Rasgos esenciales de *** ***SSH*** **: cifrado, funcionamiento, negociación de
+**Rasgos esenciales de ** ***SSH*** **: cifrado, funcionamiento, negociación de
 cifrado para la sesión y autenticación del acceso del usuario al servidor.**
