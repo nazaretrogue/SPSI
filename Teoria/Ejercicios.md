@@ -89,6 +89,30 @@ círculo de comunicación basado en RSA.**
 **Protocolo de intercambio de llaves según el esquema de Diffie-Hellman y explicación
 de su supuesta fortaleza.**
 
+El algoritmo de Diffie-Hellman está pensado para intercambio de claves.
+Se basa en la dificultad para calcular el logaritmo discreto en cuerpos con
+cardinal alto. Los pasos son:
+
+1. Los usuarios A y B eligen dos enteros elevados, *n* y *g* donde 1<*g*<*n*. Estos números no tienen por qué ser secretos.
+2. A elige aleatoriamente un número *x* elevado y calcula X = *g*<sup>x</sup>mód *n*.
+3. B elige aleatoriamente un número *y* elevado y calcula
+Y = *g*<sup>y</sup>mód *n*.
+4. A y B se intercambian los resultados sin desvelar los exponentes que ha utilizado cada uno.
+5. A calcula *k* = Y<sup>x</sup>mód *n*.
+6. B calcula *k'* = X<sup>y</sup>mód *n*.
+
+De esta forma, *k* y *k'* son exactamente iguales y es la clave que comparten ambos usuarios
+aunque ha sido generada independientemente uno del otro (*k* == *k'* == *g*<sup>xy</sup>mód *n*).
+Si se quisiera conseguir dicha clave *k* sería necesario poder calcular el logaritmo
+discreto para extraer *x* e *y*. No obstante, no es fácil ni computacionalmente
+viable calcular dicho logaritmo.
+
+Es importante tener tres condiciones en cuenta a la hora de elegir *g* y *n*:
+
+1. *n* debe ser un primo seguro, esto es, *n* es primo y (*n*-1)/2 debe ser primo.
+2. El tamaño de *n* debe ser mayor de 512 bits (1024 incluso si es posible).
+3. *g* es un elemento primitivo de *GF(n)* (un generador del grupo cíclico *GF(n)*).
+
 ## Ejercicio 7.
 **Explicación del criptosistema de ElGamal.**
 
