@@ -189,4 +189,37 @@ El procedimiento es simple: mediante cifrado asimétrico se acuerda la clave par
 
 ### Negociación de cifrado para la sesión
 
+Antes que nada, cuando un cliente establece la conexión, el servidor responde con las versiones disponibles del protocolo 
+que admite y el cliente debe elegir una. Además, el servidor envia su clave de host pública para que el cliente verifique 
+que el servidor es el esperado.
+
+Hecho esto, ambas partes de la comunicación utilizan el algoritmo de Diffie-Hellman para negociar una clave privada (o de 
+sesión) con la que cifrar todo el tráfico que se enviará entre ellos mediante cifrado simétrico. Para ello:
+
+1. Ambas partes acuerdan un primo alto que será el valor inicial.
+2. Se acuerda un generador de cifrado (normalmente AES).
+3. Cada parte obtiene otro número primo, esta vez secreto, de forma independiente. Este número será la clave privada.
+4. Con la clave privada, el generadr de cifrado y el primo compartido se genera una clave pública que deriva directamente de la privada.
+5. Ambas partes intercambian las claves públicas.
+6. Cada parte utiliza su clave privada, la clave pública de la otra parte y el número primo compartido, para generar una clave privada o de sesión. Aunque cada parte lo hace de forma independiente, se genera la misma clave con este procedimiento ya que en la clave pública de la otra parte está contenido el primo secreto que había elegido, el cual no se puede extraer de la clave pública por la complejidad computacional que eso supone, pero sí permite generar una clave privada exactamente igual en ambas partes sin conocer dicho primo.
+
+Esta clave secreta, privada o de sesión es la que se utiliza posteriormente para cifrar todos los datos que se intercambian 
+entre las dos partes de la comunicación.
+
 ### Autenticación del acceso del usuario al servidor
+
+Para autenticar al usuario en el servidor se pueden utilizar distintos métodos. El primero es el estándar, que se usa en la 
+mayoría de servidores por la mayoría de usuarios, es el uso de una contraseña. No obstante, el uso de contraseñas no es el 
+recomendado por los problemas de seguridad que puede conllevar elegir una contraseña no segura. El procedimiento es simple: 
+el usuario se loguea y el servidor pide la contraseña que el usuario envía, cifrada mediante la clave de sesión negociada 
+previamente.
+
+Otro método es el uso de un par de claves pública-privada de SSH. La clave privada se mantiene solo bajo el conocimiento del 
+cliente, mientras que la llave pública se envía al servidor y se almacena en el directorio del usuario. El prodecimiento es:
+
+1. El cliente envía un ID para el par de claves con los que autenticarse.
+2. El servidor verifica el archivo de claves con el ID enviado por el cliente.
+3. Si hay una clave pública que coincide con el ID que se ha enviado, el servidor genera un número aleatorio y lo cifra con la clave pública asociada al ID.
+4. Este número cifrado se envía al cliente, que utiliza la clave privada para descifrarlo.
+5. Una vez descifrado, el cliente devuelve el hash del número (cifrado con la clave de sesión) al servidor; el servidor utiliza el número devuelto y la clave de sesión para calcular el hash y compararlo con el hash que el cliente ha enviado.
+6. Si es correcto, el cliente queda autenticado.
